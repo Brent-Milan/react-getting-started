@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+          <Button></Button>
         </p>
         <a
           className="App-link"
@@ -20,6 +22,11 @@ function App() {
       </header>
     </div>
   );
+}
+
+function Button() {
+  const [counter, setCounter] = useState(10);
+  return <button onClick = { () => setCounter(counter * 2)}>{counter}</button>
 }
 
 export default App;
