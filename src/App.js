@@ -3,8 +3,8 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [counter, setCounter] = useState(10);
-  const incrementCounter = () => setCounter(counter * 2);
+  const [counter, setCounter] = useState(0);
+  const incrementFunction = (increment) => setCounter(counter + increment);
   return (
     <div className="App">
       <header className="App-header">
@@ -22,7 +22,9 @@ function App() {
         </a>
       </header>
       <div>
-        <Button counter={counter} incrementCounter={incrementCounter}></Button>
+        <Button increment={1} incrementFunction={incrementFunction}></Button>
+        <Button increment={5} incrementFunction={incrementFunction}></Button>
+        <Button increment={10} incrementFunction={incrementFunction}></Button>
         <Display counter={counter}></Display>
       </div>
     </div>
@@ -31,8 +33,8 @@ function App() {
 
 function Button(props) {
   return (
-  <button onClick = { props.incrementCounter }>
-    +1
+  <button onClick = { () => props.incrementFunction(props.increment) }>
+    +{ props.increment }
   </button>
   )
 }
